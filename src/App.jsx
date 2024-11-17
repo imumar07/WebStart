@@ -6,6 +6,7 @@ import Appointment from "./components/Navbar/Appointment";
 import NavbarComp from "./components/Navbar/NavbarComp";
 import Stat from "./components/Stat/Stat";
 import About from "./components/About/About";
+import './App.css';
 
 function App() {
 
@@ -40,7 +41,7 @@ function App() {
               path="/"
               element={
                 <div className='container-fluid'>
-                  <div className="flex justify-center divide-y divide-slate-200 [&>*]:py-16">
+                  <div className="small-div flex justify-center divide-y divide-slate-200 [&>*]:py-16">
                     {persons.map((person) => (
                       <Hero
                         key={person.id}
