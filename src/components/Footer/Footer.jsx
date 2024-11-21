@@ -4,16 +4,17 @@ import FollowMe from "./FollowMe";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="footer-main">
+      {/* <div className="footer-main">
         <FooterNav />
         <FollowMe />
-      </div>
+      </div> */}
       <div className="footer-bottom text-center flex flex-col ">
-        {/* <div>
+        <div>
           <p>
-            Build with <span className="text-red-500">♥</span> by Techies
+            Build with <span className="text-red-500 animate-pulse">♥</span> by Techies
+          {/* <span className="animate-pulse">♥</span> */}
           </p>
-        </div> */}
+        </div>
         <div>
           <p>© 2024 Team Techies. All Rights Reserved.</p>
         </div>

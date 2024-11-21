@@ -20,9 +20,7 @@ export default function NavbarComp() {
   const menuItems = [
     { name: "Home", route: "/" },
     { name: "About Us", route: "/about" },
-    { name: "Research", route: "/research" },
-    { name: "Contact", route: "/contact" },
-    { name: "Appointments", route: "/appointments" },
+
   ];
 
   // Update itemSelected based on the current path
@@ -41,9 +39,9 @@ export default function NavbarComp() {
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="fixed text-color" maxWidth="full">
       {/* Logo content */}
-      <NavbarContent justify="start">
-        <NavbarBrand>
-          <img src={TechImg} alt="Tech" className="h-[160px] w-[350px]" />
+      <NavbarContent justify="center" className="h-full w-full">
+        <NavbarBrand className="flex flex-row justify-center">
+          <img src={TechImg} alt="Tech" className="h-[200px] w-[350px]" />
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -52,7 +50,7 @@ export default function NavbarComp() {
       </NavbarContent>
 
       {/* Main navigation links, centered */}
-      <NavbarContent className="hidden lg:flex gap-5" justify="center">
+      {/* <NavbarContent className="hidden lg:flex gap-5" justify="center">
         {menuItems.slice(0, 7).map((item, index) => (
           <NavbarItem key={index} isActive={item.name === itemSelected}>
             <Link
@@ -64,18 +62,18 @@ export default function NavbarComp() {
             </Link>
           </NavbarItem>
         ))}
-      </NavbarContent>
+      </NavbarContent> */}
 
       {/* Button content, aligned to the end */}
-      <NavbarContent justify="end" className="hidden lg:flex">
+      {/* <NavbarContent justify="end" className="hidden lg:flex">
         <NavbarItem>
           <Button as={Link} href="/appointments" color="default" variant="shadow" radius="small" className="bg-black text-white">
             Appointment
           </Button>
         </NavbarItem>
-      </NavbarContent>
+      </NavbarContent> */}
 
-      <NavbarMenu>
+      {/* <NavbarMenu>
         {menuItems.map((item, index) => (
           index === menuItems.length - 1 ? (
             <NavbarMenuItem key={index} isActive={item.name === itemSelected}>
@@ -97,7 +95,7 @@ export default function NavbarComp() {
             </NavbarMenuItem>
           )
         ))}
-      </NavbarMenu>
+      </NavbarMenu> */}
     </Navbar>
   );
 }
