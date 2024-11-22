@@ -6,9 +6,9 @@ import Hero from "./components/Hero/Hero";
 import NavbarComp from "./components/Navbar/NavbarComp";
 // import Stat from "./components/Stat/Stat";
 // import About from "./components/About/About";
-import suresh from './assets/suresh.jpg';
-import vikas from './assets/vikas.jpg';
-import umar from './assets/umar.jpg';
+import suresh from './assets/Suresh.jpg';
+import vikas from './assets/Vikas.jpg';
+import umar from './assets/Umar.jpg';
 import './App.css';
 import { data } from 'autoprefixer';
 
@@ -21,21 +21,21 @@ function App() {
       name: 'Vikas',
       linkedIn: 'https://www.linkedin.com/in/vikas-kumar-koppoju-99b540208/',
       image: vikas,
-      data:"Freelancer, Programmer "
+      data: "Freelancer, Programmer "
     },
     {
       id: 1,
       name: 'Syed Umar',
       linkedIn: 'https://www.linkedin.com/in/syedumarkalimulla',
       image: umar,
-      data:"GDG On campus Organizer, Ex-Intern at HRLytics"
+      data: "GDG On campus Organizer, Ex-Intern at HRLytics"
     },
     {
       id: 2,
       name: 'Suresh Pilli',
       linkedIn: 'https://www.linkedin.com/in/suresh-pilli-783555254/',
       image: suresh,
-      data:"Lead Web and App, Ex-Intern at HRLytics"
+      data: "Lead Web and App, Ex-Intern at HRLytics"
     },
   ];
 
