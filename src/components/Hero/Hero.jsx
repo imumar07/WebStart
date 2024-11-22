@@ -1,7 +1,7 @@
 export default function Hero({ name, bio, image, data }) {
   return (
-    <section className="md:mt-24 lg:pt-10 overflow-hidden bg-gray-50 dark:bg-gray-800 flex items-center">
-      <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl lg:mt-20 mb-15">
+    <section className="md:mt-24 lg:pt-1 overflow-hidden bg-gray-50 dark:bg-gray-800 flex items-center">
+      <div className="px-4 mx-auto sm:px-6 lg:px-5 max-w-7xl lg:mt-15 mb-15">
         <div className="flex flex-col items-center hover:amination-bounce delay-150 duration-300">
           <div className="relative flex justify-center mt-0 sm:mt-0">
             <img
