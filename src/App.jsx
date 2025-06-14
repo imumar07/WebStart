@@ -1,12 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Contact from "./components/Contact/Contact";
+// import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
-import Appointment from "./components/Navbar/Appointment";
+// import Appointment from "./components/Navbar/Appointment";
 import NavbarComp from "./components/Navbar/NavbarComp";
-import Stat from "./components/Stat/Stat";
-import About from "./components/About/About";
+// import Stat from "./components/Stat/Stat";
+// import About from "./components/About/About";
+import suresh from './assets/Suresh.jpg';
+import vikas from './assets/Vikas.jpg';
+import umar from './assets/Umar.jpg';
 import './App.css';
+import { data } from 'autoprefixer';
+
 
 function App() {
 
@@ -14,20 +19,23 @@ function App() {
     {
       id: 1,
       name: 'Vikas',
-      linkedIn: 'A software engineer with 5 years of experience in full-stack development.',
-      image: "#",
+      linkedIn: 'https://www.linkedin.com/in/vikas-kumar-koppoju-99b540208/',
+      image: vikas,
+      data: "Freelancer, Programmer "
     },
     {
       id: 1,
       name: 'Syed Umar',
-      linkedIn: 'A software engineer with 5 years of experience in full-stack development.',
-      image: "#",
+      linkedIn: 'https://www.linkedin.com/in/syedumarkalimulla',
+      image: umar,
+      data: "GDG On campus Organizer, Ex-Intern at HRLytics"
     },
     {
       id: 2,
       name: 'Suresh Pilli',
-      linkedIn: 'A doctor specializing in neurology with a passion for research.',
-      image: "#",
+      linkedIn: 'https://www.linkedin.com/in/suresh-pilli-783555254/',
+      image: suresh,
+      data: "Lead Web and App, Ex-Intern at HRLytics"
     },
   ];
 
@@ -48,17 +56,18 @@ function App() {
                         name={person.name}
                         bio={person.linkedIn}
                         image={person.image}
+                        data={person.data}
                       />
                     ))}
                   </div>
-                  <Stat />
+                  {/* <Stat /> */}
                 </div>
               }
             />
-            <Route exact path="/contact" element={<Contact />} />
+            {/* <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/appointments" element={<Appointment />} />
-            <Route exact path="*" element={<div>Not Found Path</div>} />
+            <Route exact path="*" element={<div>Not Found Path</div>} /> */}
           </Routes>
         </Router>
         <Footer />
