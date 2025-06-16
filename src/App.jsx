@@ -5,7 +5,7 @@ import Hero from "./components/Hero/Hero";
 import NavbarComp from "./components/Navbar/NavbarComp";
 import suresh from './assets/Suresh.jpg';
 import vikas from './assets/Vikas.jpg';
-import umar from './assets/Umar.jpg';
+import umar from './assets/umar.jpg';
 import './App.css';
 import Invoice from './components/Invoice/Invoice';
 
@@ -15,21 +15,21 @@ const persons = [
     name: 'Vikas',
     linkedIn: 'https://www.linkedin.com/in/vikas-kumar-koppoju-99b540208/',
     image: vikas,
-    data: "Freelancer, Programmer "
+    data: "Associate Software Engineer"
   },
   {
     id: 2,
     name: 'Syed Umar',
     linkedIn: 'https://www.linkedin.com/in/syedumarkalimulla',
     image: umar,
-    data: "GDG On campus Organizer, Ex-Intern at HRLytics"
+    data: "Associate Software Engineer"
   },
   {
     id: 3,
     name: 'Suresh Pilli',
     linkedIn: 'https://www.linkedin.com/in/suresh-pilli-783555254/',
     image: suresh,
-    data: "Lead Web and App, Ex-Intern at HRLytics"
+    data: "Assoiate Software Engineer"
   },
 ];
 
@@ -58,7 +58,7 @@ function App() {
           <Route
             path="/"
             element={
-              <div className='container-fluid'>
+              <div className='container-fluid '>
                 <div className="small-div flex justify-center divide-y divide-slate-200 [&>*]:py-16">
                   {persons.map((person) => (
                     <Hero

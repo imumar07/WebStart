@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="footer-bottom text-center flex flex-col ">
         <div>
           <p>
-            Build with <span className="text-red-500 animate-pulse">♥</span> by Techies
+            Build with <span className="text-red-500 animate-pulse">♥</span> by WebStart
           {/* <span className="animate-pulse">♥</span> */}
           </p>
         </div>
