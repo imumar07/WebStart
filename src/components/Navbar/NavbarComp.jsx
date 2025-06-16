@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import logo from "../../assets/logo_with_title.svg" 
 import TechImg from "../../assets/Techies (Website).png";
 import {
   Navbar,
@@ -37,15 +38,15 @@ export default function NavbarComp() {
   };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="fixed text-color" maxWidth="full">
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="fixed text-color md:h-[120px] sm:h-[60px]" maxWidth="full" >
       {/* Logo content */}
-      <NavbarContent justify="center" className="h-full w-full">
+      <NavbarContent justify="start" className="h-full w-full">
         <NavbarBrand className="flex flex-row justify-center">
-          <img src={TechImg} alt="Tech" className="h-[200px] w-[350px]" />
+          <img src={logo} alt="Tech" className="h-[100px] w-full sm:h-[160px] sm:w-[200px] lg:h-[200px] lg:w-[350px]" />
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="lg:hidden"
+          className="hidden"
         />
       </NavbarContent>
 
