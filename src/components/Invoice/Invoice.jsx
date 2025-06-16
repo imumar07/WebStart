@@ -79,15 +79,15 @@ const Invoice = () => {
                   </td>
                   <td className="px-4 py-3 text-right">24,999</td>
                 </tr>
-                <tr>
+                {/* <tr>
                   <td className="px-4 py-3">
                     <strong>3-Year Domain Registration (GST Included)</strong>
                   </td>
                   <td className="px-4 py-3 text-right">4,297</td>
-                </tr>
+                </tr> */}
                 <tr className="font-bold">
                   <td className="px-4 py-3">Total</td>
-                  <td className="px-4 py-3 text-right">35,141</td>
+                  <td className="px-4 py-3 text-right">30,844</td>
                 </tr>
                 <tr>
                   <td className="px-4 py-3">Amount Paid</td>
@@ -95,7 +95,7 @@ const Invoice = () => {
                 </tr>
                 <tr className="font-bold bg-gray-100 dark:bg-gray-700">
                   <td className="px-4 py-3">Final Amount to be Paid</td>
-                  <td className="px-4 py-3 text-right text-green-600">28,641</td>
+                  <td className="px-4 py-3 text-right text-green-600">24,344</td>
                 </tr>
               </tbody>
             </table>
