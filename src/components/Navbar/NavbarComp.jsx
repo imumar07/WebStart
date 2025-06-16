@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import logo from "../../assets/logo_with_title.svg" 
-import TechImg from "../../assets/Techies (Website).png";
 import {
   Navbar,
   NavbarBrand,
