@@ -8,6 +8,7 @@ import vikas from './assets/Vikas.jpg';
 import umar from './assets/Umar.jpg';
 import './App.css';
 import Invoice from './components/Invoice/Invoice';
+import { Nav } from 'react-bootstrap';
 
 const persons = [
   {
@@ -73,7 +74,14 @@ function App() {
               </div>
             }
           />
-          <Route path="/invoice" element={<Invoice />} />
+          <Route path="/invoice" element={
+              <>
+              <NavbarComp />
+            <Invoice />
+            <Footer />
+            </>
+            
+            } />
           <Route path="*" element={<div className="text-center py-5 text-danger">404 - Page Not Found</div>} />
         </Routes>
       </MainLayout>

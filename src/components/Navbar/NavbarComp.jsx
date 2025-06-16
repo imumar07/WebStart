@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import logo from "../../assets/logo_with_title.svg" 
-import TechImg from "../../assets/Techies (Website).png";
 import {
   Navbar,
   NavbarBrand,
@@ -38,7 +37,7 @@ export default function NavbarComp() {
   };
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="fixed text-color md:h-[120px] sm:h-[60px]" maxWidth="full" >
+    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="text-color md:h-[120px] sm:h-[60px]" maxWidth="full" >
       {/* Logo content */}
       <NavbarContent justify="start" className="h-full w-full">
         <NavbarBrand className="flex flex-row justify-center">
