@@ -60,7 +60,7 @@ function App() {
             path="/"
             element={
               <div className='container-fluid '>
-                <div className="small-div flex justify-center divide-y divide-slate-200 [&>*]:py-16">
+                <div className="small-div flex justify-center divide-y divide-slate-200 [&>*]:py-4">
                   {persons.map((person) => (
                     <Hero
                       key={person.id}
