@@ -1,5 +1,4 @@
 import React from "react";
-import "./Invoice.css"; // Use normal CSS
 
 const Invoice = () => {
   const handlePrint = () => {
@@ -7,95 +6,117 @@ const Invoice = () => {
   };
 
   return (
-    <div className="invoice-container">
-      <div className="invoice-card">
-        <div className="invoice-header">
-          <h2>Invoice</h2>
+    <section className="bg-gray-50 dark:bg-gray-800 min-h-screen py-10 px-4">
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+        <div className="bg-[#111827] text-white text-center py-4">
+          <h2 className="text-2xl font-bold">Invoice</h2>
         </div>
-        <div className="invoice-body">
-          <div className="invoice-row">
+
+        <div className="p-6 space-y-6">
+          {/* Sender and Receiver Info */}
+          <div className="flex flex-col md:flex-row justify-between text-gray-700 dark:text-gray-200">
             <div>
-              <h5><strong>From:</strong></h5>
-              <p><strong>The WebStart</strong></p>
+              <h5 className="font-bold">From:</h5>
+              <p className="font-semibold">The WebStart</p>
               <p>Web Development Services</p>
               <p>
-                Email: <a href="mailto:Umar630934@gmail.com">Umar630934@gmail.com</a><br />
-                <a href="mailto:koppojuvikaskumar@gmail.com">koppojuvikaskumar@gmail.com</a>
+                Email:{" "}
+                <a className="text-blue-600 dark:text-blue-400" href="mailto:Umar630934@gmail.com">
+                  Umar630934@gmail.com
+                </a>
+                <br />
+                <a className="text-blue-600 dark:text-blue-400" href="mailto:koppojuvikaskumar@gmail.com">
+                  koppojuvikaskumar@gmail.com
+                </a>
               </p>
             </div>
-            <div className="text-right">
-              <h5><strong>To:</strong></h5>
-              <p><strong>Dr Ibrar Ansari</strong></p>
+
+            <div className="text-left md:text-right mt-6 md:mt-0">
+              <h5 className="font-bold">To:</h5>
+              <p className="font-semibold">Dr Ibrar Ansari</p>
               <p>
-                Email: <a href="mailto:ansarimohammadibrar@gmail.com">ansarimohammadibrar@gmail.com</a>
+                Email:{" "}
+                <a className="text-blue-600 dark:text-blue-400" href="mailto:ansarimohammadibrar@gmail.com">
+                  ansarimohammadibrar@gmail.com
+                </a>
               </p>
             </div>
           </div>
 
-          <table className="invoice-table">
-            <thead>
-              <tr>
-                <th>Product Details</th>
-                <th className="text-right">Amount (₹)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>Hostinger Plan</strong>
-                  <ul>
-                    <li>4-Year Web Hosting Plan</li>
-                    <li>Support for Hosting Up to 100 Websites</li>
-                    <li>Unlimited Bandwidth for Optimal Performance</li>
-                    <li>24/7 Customer Support</li>
-                    <li>Free SSL Certificate for Enhanced Security</li>
-                  </ul>
-                </td>
-                <td className="text-right">5,845</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>WordPress Website Development</strong>
-                  <ul>
-                    <li>Custom Logo and Poster Design</li>
-                    <li>Complete Website Design and Development</li>
-                    <li>Tailored Customizations to Meet Your Requirements</li>
-                    <li>Complimentary 1-Year Maintenance and Support</li>
-                    <li>SEO Optimization for Enhanced Online Visibility</li>
-                  </ul>
-                </td>
-                <td className="text-right">24,999</td>
-              </tr>
-              <tr>
-                <td><strong>Additional 3-Year Domain Registration (GST Included)</strong></td>
-                <td className="text-right">4,297</td>
-              </tr>
-              <tr>
-                <td><strong>Total</strong></td>
-                <td className="text-right"><strong>35,141</strong></td>
-              </tr>
-              <tr>
-                <td>Amount Paid</td>
-                <td className="text-right">-6,500</td>
-              </tr>
-              <tr>
-                <td><strong>Final Amount to be Paid</strong></td>
-                <td className="text-right"><strong>28,641</strong></td>
-              </tr>
-            </tbody>
-          </table>
+          {/* Invoice Table */}
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-sm text-gray-800 dark:text-gray-200">
+              <thead>
+                <tr className="bg-gray-200 dark:bg-gray-700">
+                  <th className="text-left px-4 py-2">Product Details</th>
+                  <th className="text-right px-4 py-2">Amount (₹)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-300 dark:divide-gray-600">
+                <tr>
+                  <td className="px-4 py-3">
+                    <strong>Hostinger Plan</strong>
+                    <ul className="list-disc ml-5">
+                      <li>4-Year Web Hosting Plan</li>
+                      <li>Support for Hosting Up to 100 Websites</li>
+                      <li>Unlimited Bandwidth</li>
+                      <li>24/7 Customer Support</li>
+                      <li>Free SSL Certificate</li>
+                    </ul>
+                  </td>
+                  <td className="px-4 py-3 text-right">5,845</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">
+                    <strong>WordPress Website Development</strong>
+                    <ul className="list-disc ml-5">
+                      <li>Custom Logo and Poster Design</li>
+                      <li>Complete Website Design</li>
+                      <li>Tailored Customizations</li>
+                      <li>1-Year Maintenance & Support</li>
+                      <li>SEO Optimization</li>
+                    </ul>
+                  </td>
+                  <td className="px-4 py-3 text-right">24,999</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">
+                    <strong>3-Year Domain Registration (GST Included)</strong>
+                  </td>
+                  <td className="px-4 py-3 text-right">4,297</td>
+                </tr>
+                <tr className="font-bold">
+                  <td className="px-4 py-3">Total</td>
+                  <td className="px-4 py-3 text-right">35,141</td>
+                </tr>
+                <tr>
+                  <td className="px-4 py-3">Amount Paid</td>
+                  <td className="px-4 py-3 text-right text-red-600">-6,500</td>
+                </tr>
+                <tr className="font-bold bg-gray-100 dark:bg-gray-700">
+                  <td className="px-4 py-3">Final Amount to be Paid</td>
+                  <td className="px-4 py-3 text-right text-green-600">28,641</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <div className="text-right" style={{ marginTop: "2rem" }}>
-            <button className="print-btn" onClick={handlePrint}>
+          {/* Print Button */}
+          <div className="text-right">
+            <button
+              onClick={handlePrint}
+              className="px-6 py-3 bg-[#111827] hover:bg-gray-800 text-white font-medium rounded-lg shadow"
+            >
               Print Invoice
             </button>
           </div>
         </div>
-        <div className="invoice-footer">
+
+        <div className="bg-gray-100 dark:bg-gray-700 text-center text-gray-700 dark:text-gray-300 py-4 text-sm">
           Thank you for your business! Feel free to reach out if you have any questions.
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
