@@ -5,7 +5,7 @@ import Hero from "./components/Hero/Hero";
 import NavbarComp from "./components/Navbar/NavbarComp";
 import suresh from './assets/Suresh.jpg';
 import vikas from './assets/Vikas.jpg';
-import umar from './assets/umar.jpg';
+import umar from './assets/Umar.jpg';
 import './App.css';
 import Invoice from './components/Invoice/Invoice';
 
