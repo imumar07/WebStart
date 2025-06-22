@@ -1,4 +1,5 @@
 import React from "react";
+import qrImage from "../../assets/QR.jpg";
 
 const Invoice = () => {
   const handlePrint = () => {
@@ -21,11 +22,17 @@ const Invoice = () => {
               <p>Web Development Services</p>
               <p>
                 Email:{" "}
-                <a className="text-blue-600 dark:text-blue-400" href="mailto:Umar630934@gmail.com">
+                <a
+                  className="text-blue-600 dark:text-blue-400"
+                  href="mailto:Umar630934@gmail.com"
+                >
                   Umar630934@gmail.com
                 </a>
                 <br />
-                <a className="text-blue-600 dark:text-blue-400" href="mailto:koppojuvikaskumar@gmail.com">
+                <a
+                  className="text-blue-600 dark:text-blue-400"
+                  href="mailto:koppojuvikaskumar@gmail.com"
+                >
                   koppojuvikaskumar@gmail.com
                 </a>
               </p>
@@ -36,7 +43,10 @@ const Invoice = () => {
               <p className="font-semibold">Dr Ibrar Ansari</p>
               <p>
                 Email:{" "}
-                <a className="text-blue-600 dark:text-blue-400" href="mailto:ansarimohammadibrar@gmail.com">
+                <a
+                  className="text-blue-600 dark:text-blue-400"
+                  href="mailto:ansarimohammadibrar@gmail.com"
+                >
                   ansarimohammadibrar@gmail.com
                 </a>
               </p>
@@ -95,10 +105,25 @@ const Invoice = () => {
                 </tr>
                 <tr className="font-bold bg-gray-100 dark:bg-gray-700">
                   <td className="px-4 py-3">Final Amount to be Paid</td>
-                  <td className="px-4 py-3 text-right text-green-600">24,344</td>
+                  <td className="px-4 py-3 text-right text-green-600">
+                    24,344
+                  </td>
                 </tr>
               </tbody>
             </table>
+          </div>
+          <div className="text-center">
+            <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">
+              Scan to Pay (UPI)
+            </h3>
+            <img
+              src={qrImage} // replace with actual QR code image path or local image
+              alt="QR Code to Pay"
+              className="mx-auto w-80 h-100 border border-gray-300 dark:border-gray-600 rounded-md"
+            />
+            {/* <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+              UPI ID: yourupi@bank
+            </p> */}
           </div>
 
           {/* Print Button */}
@@ -113,7 +138,8 @@ const Invoice = () => {
         </div>
 
         <div className="bg-gray-100 dark:bg-gray-700 text-center text-gray-700 dark:text-gray-300 py-4 text-sm">
-          Thank you for your business! Feel free to reach out if you have any questions.
+          Thank you for your business! Feel free to reach out if you have any
+          questions.
         </div>
       </div>
     </section>
