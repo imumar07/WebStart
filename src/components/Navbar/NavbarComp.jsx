@@ -40,17 +40,17 @@ export default function NavbarComp() {
     <Navbar onMenuOpenChange={setIsMenuOpen} isBordered className="text-color md:h-[120px] sm:h-[60px]" maxWidth="full" >
       {/* Logo content */}
       <NavbarContent justify="start" className="h-full w-full">
-        <NavbarBrand className="flex flex-row justify-center">
+        <NavbarBrand className="flex flex-row justify-start">
           <img src={logo} alt="Tech" className="h-[100px] w-full sm:h-[160px] sm:w-[200px] lg:h-[200px] lg:w-[350px]" />
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="hidden"
+          className="visible"
         />
       </NavbarContent>
 
-      {/* Main navigation links, centered */}
-      {/* <NavbarContent className="hidden lg:flex gap-5" justify="center">
+  
+       <NavbarContent className="hidden lg:flex gap-5" justify="start">
         {menuItems.slice(0, 7).map((item, index) => (
           <NavbarItem key={index} isActive={item.name === itemSelected}>
             <Link
@@ -62,28 +62,11 @@ export default function NavbarComp() {
             </Link>
           </NavbarItem>
         ))}
-      </NavbarContent> */}
+      </NavbarContent>
 
-      {/* Button content, aligned to the end */}
-      {/* <NavbarContent justify="end" className="hidden lg:flex">
-        <NavbarItem>
-          <Button as={Link} href="/appointments" color="default" variant="shadow" radius="small" className="bg-black text-white">
-            Appointment
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
-
-      {/* <NavbarMenu>
+      <NavbarMenu>
         {menuItems.map((item, index) => (
-          index === menuItems.length - 1 ? (
-            <NavbarMenuItem key={index} isActive={item.name === itemSelected}>
-              <NavbarItem>
-                <Button as={Link} href="/appointments" color="default" variant="shadow" radius="small" className="bg-black text-white">
-                  Appointment
-                </Button>
-              </NavbarItem>
-            </NavbarMenuItem>
-          ) : (
+           (
             <NavbarMenuItem key={index} isActive={item.name === itemSelected}>
               <Link
                 href={item.route}
@@ -95,7 +78,7 @@ export default function NavbarComp() {
             </NavbarMenuItem>
           )
         ))}
-      </NavbarMenu> */}
+      </NavbarMenu>
     </Navbar>
   );
 }
