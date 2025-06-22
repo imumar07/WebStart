@@ -54,7 +54,7 @@ export default function ServicesOffered() {
                                 <img
                                     src={service.url}
                                     alt={service.title}
-                                    className="w-full h-80 object-cover mb-2 border"
+                                    className="w-full h-80 object-fit mb-2 border"
                                 />
                             </div>
                             <h3 className="text-black text-3xl font-semibold mb-4">{service.title}</h3>

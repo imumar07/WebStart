@@ -68,7 +68,7 @@ function App() {
             } 
           />
           <Route
-            path="/about"
+            path="/team"
             element={
               <div className='container-fluid '>
                 

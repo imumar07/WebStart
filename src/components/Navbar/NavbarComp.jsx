@@ -19,7 +19,7 @@ export default function NavbarComp() {
 
   const menuItems = [
     { name: "Home", route: "/" },
-    { name: "About Us", route: "/about" },
+    { name: "Team", route: "/team" },
 
   ];
 
@@ -45,12 +45,12 @@ export default function NavbarComp() {
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="visible"
+          className="visible lg:hidden"
         />
       </NavbarContent>
 
   
-       <NavbarContent className="hidden lg:flex gap-5" justify="start">
+       <NavbarContent className="hidden lg:flex gap-5" justify="end">
         {menuItems.slice(0, 7).map((item, index) => (
           <NavbarItem key={index} isActive={item.name === itemSelected}>
             <Link
