@@ -8,6 +8,10 @@ export default {
   theme: {
 
 	extend: {
+		fontFamily: {
+    heading: ['"EB Garamond"', 'serif'],
+    body: ['"Nunito"', 'sans-serif'],
+  },
 		animation: {
 			backgroundPositionSpin:
 			  "background-position-spin 3000ms infinite alternate",

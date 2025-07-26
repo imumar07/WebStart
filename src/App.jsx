@@ -11,6 +11,19 @@ import Invoice from './components/Invoice/Invoice';
 import { Nav } from 'react-bootstrap';
 import Content from './components/Content/Content';
 import ServicesOffered from './components/servicesOffered/ServicesOffered';
+import Services from './components/Services/Services';
+import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
+import Testimonials from './components/Testimonials/Testimonials';
+import HowItWorks from './components/HowItWorks/HowItWorks';
+import AboutUs from './components/AboutUs/AboutUs';
+
+// import AOS from 'aos';
+// import 'aos/dist/aos.css';
+
+// useEffect(() => {
+//   AOS.init({ duration: 1000 });
+// }, []);
+
 
 const persons = [
   {
@@ -62,8 +75,14 @@ function App() {
             path="/"
             element={
               <div className='container-fluid min-h-screen [&>*]:py-4'>
-                <Content />
-                <ServicesOffered />
+                {/* <Content />
+                <ServicesOffered /> */}
+                <Hero/>
+                <Services/>
+                <WhyChooseUs/>
+                <HowItWorks/>
+                <AboutUs/>
+                <Testimonials/>
               </div>
             } 
           />
