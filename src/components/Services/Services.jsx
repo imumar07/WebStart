@@ -47,7 +47,7 @@ export default function Services() {
 
         {/* Section Image */}
         <div
-          className="relative bg-white dark:bg-gray-800 p-4 sm:p-8 rounded-3xl shadow-2xl w-full max-w-4xl mx-auto"
+          className="relative bg-gray-150 dark:bg-gray-800 p-2 sm:p-4 rounded-3xl shadow-md w-full max-w-6xl mx-auto"
           data-aos="zoom-in"
         >
           <img
