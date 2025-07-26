@@ -42,7 +42,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 dark:bg-gray-900 font-body">
+    <section className="py-24 bg-gray-50 dark:bg-gray-900 font-body" >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 mt-24 mb-24">
 
         {/* Section Image */}
@@ -58,7 +58,7 @@ export default function Services() {
         </div>
 
         {/* Section Heading */}
-        <div data-aos="fade-up">
+        <div data-aos="fade-up" id="services">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-heading">
             What We Offer
           </h2>

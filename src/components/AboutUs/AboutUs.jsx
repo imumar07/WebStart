@@ -9,16 +9,16 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <section className="bg-[#F9FAFB] py-16 px-4 sm:px-8 lg:px-24">
-      <div className="max-w-6xl mx-auto text-center mt-24 mb-24">
+    <section className="bg-[#F9FAFB] py-16 px-4 sm:px-6 md:px-10 lg:px-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center mt-24 mb-24">
         <h2
-          className="text-3xl sm:text-4xl font-bold mb-6 text-gray-900 font-heading"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-gray-900 font-heading"
           data-aos="fade-up"
         >
           About Us
         </h2>
         <p
-          className="text-lg text-gray-700 max-w-3xl mx-auto mb-10 font-body"
+          className="text-base sm:text-lg text-gray-700 max-w-3xl mx-auto mb-10 font-body"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -26,7 +26,7 @@ const AboutUs = () => {
           digital solutions. Our diverse backgrounds and shared values drive us to create work that truly matters.
         </p>
 
-        <div className="flex flex-col lg:flex-row items-center gap-10">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
           {/* Team Image */}
           <div className="w-full lg:w-1/2" data-aos="fade-right">
             <img
@@ -38,18 +38,18 @@ const AboutUs = () => {
 
           {/* Details */}
           <div className="w-full lg:w-1/2 text-left" data-aos="fade-left">
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4 font-heading">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 font-heading">
               Our Mission
             </h3>
-            <p className="text-gray-700 mb-6 font-body">
+            <p className="text-gray-700 mb-6 font-body text-sm sm:text-base">
               Our mission is to empower individuals and businesses through innovative, scalable, and human-centered
               digital experiences. We’re committed to making technology accessible, functional, and beautiful.
             </p>
 
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4 font-heading">
+            <h3 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 font-heading">
               What Sets Us Apart?
             </h3>
-            <ul className="list-disc ml-5 text-gray-700 space-y-2 font-body">
+            <ul className="list-disc ml-5 text-gray-700 space-y-2 font-body text-sm sm:text-base">
               <li>Diverse and collaborative team culture</li>
               <li>User-first mindset in every project</li>
               <li>Commitment to continuous innovation</li>

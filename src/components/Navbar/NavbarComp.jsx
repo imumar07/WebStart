@@ -18,11 +18,12 @@ export default function NavbarComp() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    { name: "Home", route: "/" },
-    { name: "Team", route: "/team" },
-    { name: "About", route: "/about" },
-    { name: "Services", route: "/services" },
-  ];
+  { name: "Home", route: "/" },
+  { name: "Services", route: "#services" },
+  { name: "About", route: "/about" },
+  { name: "Contact", route: "/contact" },
+];
+
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -40,7 +41,7 @@ export default function NavbarComp() {
 <Navbar
   onMenuOpenChange={setIsMenuOpen}
   isBordered
-  className="text-color md:h-[80px] sm:h-[60px] font-body" // apply Nunito to overall nav
+  className="text-color h-100px md:h-[100px] sm:h-[80px] font-body" // apply Nunito to overall nav
   maxWidth="full"
 >
   {/* Logo Section */}
@@ -81,7 +82,7 @@ export default function NavbarComp() {
   <NavbarContent justify="end" className="hidden lg:flex font-body">
     <Button
       as={Link}
-      href="/join"
+      href="https://www.instagram.com/thewebstart?igsh=dTFxZW0zYWcweWp6"
       color="primary"
       variant="flat"
       className="text-white bg-[#4588ff] hover:bg-[#3574e2] transition"
@@ -110,7 +111,7 @@ export default function NavbarComp() {
     <NavbarMenuItem>
       <Button
         as={Link}
-        href="/join"
+        href="https://www.instagram.com/thewebstart?igsh=dTFxZW0zYWcweWp6"
         fullWidth
         className="mt-2 bg-[#4588ff] text-white"
       >

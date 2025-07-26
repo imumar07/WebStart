@@ -3,65 +3,27 @@ import { useEffect } from 'react';
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import NavbarComp from "./components/Navbar/NavbarComp";
-import suresh from './assets/Suresh.jpg';
-import vikas from './assets/Vikas.jpg';
-import umar from './assets/Umar.jpg';
-import './App.css';
 import Invoice from './components/Invoice/Invoice';
-import { Nav } from 'react-bootstrap';
-import Content from './components/Content/Content';
-import ServicesOffered from './components/servicesOffered/ServicesOffered';
 import Services from './components/Services/Services';
 import WhyChooseUs from './components/WhyChooseUs/WhyChooseUs';
 import Testimonials from './components/Testimonials/Testimonials';
 import HowItWorks from './components/HowItWorks/HowItWorks';
 import AboutUs from './components/AboutUs/AboutUs';
-
-// import AOS from 'aos';
-// import 'aos/dist/aos.css';
-
-// useEffect(() => {
-//   AOS.init({ duration: 1000 });
-// }, []);
-
-
-const persons = [
-  {
-    id: 1,
-    name: 'Vikas',
-    linkedIn: 'https://www.linkedin.com/in/vikas-kumar-koppoju-99b540208/',
-    image: vikas,
-    data: "Associate Software Engineer"
-  },
-  {
-    id: 2,
-    name: 'Syed Umar',
-    linkedIn: 'https://www.linkedin.com/in/syedumarkalimulla',
-    image: umar,
-    data: "Associate Software Engineer"
-  },
-  {
-    id: 3,
-    name: 'Suresh Pilli',
-    linkedIn: 'https://www.linkedin.com/in/suresh-pilli-783555254/',
-    image: suresh,
-    data: "Assoiate Software Engineer"
-  },
-];
+import About from './components/About';
+import Contact from './components/Contact/Contact';
 
 const MainLayout = ({ children }) => {
   const location = useLocation();
-  const hideLayout = location.pathname === "/invoice"; // Hide header/footer on /invoice
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Scroll to top on route change
+    window.scrollTo(0, 0);
   }, [location]);
 
   return (
-    <div className='w-full'>
-      {!hideLayout && <NavbarComp />}
+    <div className="w-full">
+      <NavbarComp />
       {children}
-      {!hideLayout && <Footer />}
+      <Footer />
     </div>
   );
 };
@@ -69,54 +31,58 @@ const MainLayout = ({ children }) => {
 function App() {
   return (
     <Router>
-      <MainLayout>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div className='container-fluid min-h-screen [&>*]:py-4'>
-                {/* <Content />
-                <ServicesOffered /> */}
-                <Hero/>
-                <Services/>
-                <WhyChooseUs/>
-                <HowItWorks/>
-                <AboutUs/>
-                <Testimonials/>
+      <Routes>
+        {/* Routes with MainLayout */}
+        <Route
+          path="/"
+          element={
+            <MainLayout>
+              <div className="container-fluid min-h-screen [&>*]:py-4">
+                <Hero />
+                <Services />
+                <WhyChooseUs />
+                <HowItWorks />
+                <AboutUs />
+                <Testimonials />
               </div>
-            } 
-          />
-          <Route
-            path="/team"
-            element={
-              <div className='container-fluid '>
-                
-                <div className="small-div flex justify-center  [&>*]:py-4">
-                  
-                  {persons.map((person) => (
-                    <Hero
-                      key={person.id}
-                      name={person.name}
-                      bio={person.linkedIn}
-                      image={person.image}
-                      data={person.data}
-                    />
-                  ))}
-                </div>
-              </div>
-            }
-          />
-          <Route path="/invoice" element={
-              <>
-              <NavbarComp />
-            <Invoice />
-            <Footer />
-            </>
-            
-            } />
-          <Route path="*" element={<div className="text-center py-5 text-danger">404 - Page Not Found</div>} />
-        </Routes>
-      </MainLayout>
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <MainLayout>
+              <Services />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <MainLayout>
+              <Contact />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <MainLayout>
+              <About />
+            </MainLayout>
+          }
+        />
+
+        {/* Invoice Page - No layout */}
+        <Route path="/invoice" element={<Invoice />} />
+
+        {/* 404 Page */}
+        <Route path="*" element={
+          <MainLayout>
+            <div className="text-center py-5 text-danger">404 - Page Not Found</div>
+          </MainLayout>
+        } />
+      </Routes>
     </Router>
   );
 }
