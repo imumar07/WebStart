@@ -31,7 +31,7 @@ const AboutUs = () => {
           <div className="w-full lg:w-1/2" data-aos="fade-right">
             <img
               src={teamPhoto}
-              alt="Our Team"
+              alt="WebStart development team working on project"
               className="rounded-xl shadow-lg w-full h-auto max-h-[400px] object-cover"
             />
           </div>
