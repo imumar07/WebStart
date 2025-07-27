@@ -42,19 +42,21 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 bg-gray-50 dark:bg-gray-900 font-body" >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 mt-24 mb-24">
+    <section className="py-20 bg-gray-50 dark:bg-gray-900 font-body">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16 mt-24 mb-24">
 
-        {/* Section Image */}
-        <div
-          className="relative bg-gray-150 dark:bg-gray-800 p-2 sm:p-4 rounded-3xl shadow-md w-full max-w-6xl mx-auto"
-          data-aos="zoom-in"
-        >
+        {/* Blurred Dark Image with Text Overlay */}
+        <div className="relative h-[300px] sm:h-[400px] rounded-3xl overflow-hidden shadow-lg" data-aos="zoom-in">
           <img
             src={servicesImage}
             alt="Services"
-            className="rounded-2xl w-full h-auto object-contain"
+            className="w-full h-full object-cover filter  brightness-50"
           />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="font-body bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-xl shadow-md max-w-xl text-xl sm:text-2xl font-semibold">
+              Helping businesses grow with modern tech, design, and strategy.
+            </div>
+          </div>
         </div>
 
         {/* Section Heading */}

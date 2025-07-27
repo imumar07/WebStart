@@ -9,14 +9,14 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="lg:pt-1 overflow-hidden bg-gray-50 dark:bg-gray-800 flex items-center min-h-[80vh]">
+    <section className="overflow-hidden bg-gray-50 dark:bg-gray-800 flex items-center min-h-[80vh]">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl w-full">
         <div
-          className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12"
+          className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-20"
           data-aos="fade-up"
         >
           {/* Left: Text Content */}
-          <div className="text-center lg:text-left max-w-xl">
+          <div className="w-full max-w-xl text-center lg:text-left">
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-5 bg-gradient-to-r from-[#35FF45] to-[#4588FF] bg-clip-text text-transparent">
               Build. Launch. Thrive.
             </h1>
@@ -30,19 +30,22 @@ export default function Hero() {
             </p>
 
             <a
-              href="#contact"
-              className="inline-block px-6 py-3 text-white font-semibold bg-[#4588FF] hover:bg-[#35FF45] transition-all duration-300 ease-in-out rounded-xl shadow-lg text-lg font-body"
+              href="https://www.instagram.com/thewebstart?igsh=dTFxZW0zYWcweWp6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold bg-[#4588FF] hover:bg-[#35FF45] transition-all duration-300 ease-in-out rounded-xl shadow-lg text-lg font-body"
             >
+              <i className="fab fa-instagram text-xl"></i>
               Reach Out
             </a>
           </div>
 
           {/* Right: Image */}
-          <div className="flex justify-center">
+          <div className="w-full flex justify-center">
             <img
               src={one_stop}
               alt="The WebStart"
-              className="w-full max-w-xl h-[400px] sm:h-[480px] md:h-[520px] lg:h-[500px] object-contain rounded-2xl shadow-2xl"
+              className="max-w-sm sm:max-w-md md:max-w-md w-full h-auto object-contain rounded-2xl shadow-2xl"
             />
           </div>
         </div>

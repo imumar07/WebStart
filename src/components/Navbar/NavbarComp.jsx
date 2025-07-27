@@ -19,7 +19,7 @@ export default function NavbarComp() {
 
   const menuItems = [
   { name: "Home", route: "/" },
-  { name: "Services", route: "#services" },
+  // { name: "Services", route: "#services" },
   { name: "About", route: "/about" },
   { name: "Contact", route: "/contact" },
 ];
@@ -80,16 +80,20 @@ export default function NavbarComp() {
 
   {/* Button Section */}
   <NavbarContent justify="end" className="hidden lg:flex font-body">
-    <Button
-      as={Link}
-      href="https://www.instagram.com/thewebstart?igsh=dTFxZW0zYWcweWp6"
-      color="primary"
-      variant="flat"
-      className="text-white bg-[#4588ff] hover:bg-[#3574e2] transition"
-    >
-      Join Community
-    </Button>
-  </NavbarContent>
+  <Button
+    as={Link}
+    href="https://www.instagram.com/thewebstart?igsh=dTFxZW0zYWcweWp6"
+    color="primary"
+    variant="flat"
+    className="text-white bg-[#4588ff] hover:bg-[#3574e2] transition gap-2"
+  >
+    
+    Join Community
+  
+    <i className="fa-solid fa-champagne-glasses"></i>
+  </Button>
+</NavbarContent>
+
 
   {/* Mobile Menu */}
   <NavbarMenu className="font-body">
