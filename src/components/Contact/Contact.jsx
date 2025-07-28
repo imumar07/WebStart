@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
   useEffect(() => {
@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
+          {/* <div className="flex items-center space-x-4">
             <div className="text-green-600 text-xl">
               <FaPhoneAlt />
             </div>
@@ -46,7 +46,7 @@ const Contact = () => {
               <p className="text-gray-700 font-semibold">Phone</p>
               <p className="text-gray-600">+91 6305535725</p>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex items-center space-x-4">
             <div className="text-green-600 text-xl">
@@ -55,10 +55,27 @@ const Contact = () => {
             <div>
               <p className="text-gray-700 font-semibold">Email</p>
               <a
-                href="mailto:info@webstart.com"
+                href="mailto:thewebstart24@gmail.com"
                 className="text-green-600 hover:underline"
               >
-                info@webstart.com
+                thewebstart24@gmail.com
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="text-green-600 text-xl">
+              <FaInstagram />
+            </div>
+            <div>
+              <p className="text-gray-700 font-semibold">Instagram</p>
+              <a
+                href="https://instagram.com/thewebstart"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline"
+              >
+                @thewebstart
               </a>
             </div>
           </div>

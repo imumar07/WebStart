@@ -35,7 +35,7 @@ const Footer = () => {
         {/* Contact Section */}
         <div className="flex flex-col items-center md:items-end text-center md:text-right">
           <p className="text-gray-300">Contact us:</p>
-          <p className="text-gray-400">info@thewebstart.com</p>
+          <p className="text-gray-400">thewebstart24@gmail.com</p>
           {/* <p className="text-gray-400">+91 6305535725</p> */}
         </div>
       </div>
