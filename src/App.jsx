@@ -11,6 +11,7 @@ import HowItWorks from './components/HowItWorks/HowItWorks';
 import AboutUs from './components/AboutUs/AboutUs';
 import About from './components/About';
 import Contact from './components/Contact/Contact';
+import Projects from './components/Projects/Projects';
 
 const MainLayout = ({ children }) => {
   const location = useLocation();
@@ -42,6 +43,7 @@ function App() {
                 <Services />
                 <WhyChooseUs />
                 <HowItWorks />
+                <Projects/>
                 <AboutUs />
                 <Testimonials />
               </div>

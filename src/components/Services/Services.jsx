@@ -78,7 +78,7 @@ export default function Services() {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              <div className="text-[#35ff45] text-3xl mb-4">
+              <div className="text-[#4588ff] text-3xl mb-4">
                 <i className={service.icon}></i>
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 font-heading">
