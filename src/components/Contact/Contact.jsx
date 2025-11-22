@@ -1,7 +1,13 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock, FaInstagram } from 'react-icons/fa';
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {
+  FaMapMarkerAlt,
+  FaLinkedin,
+  FaEnvelope,
+  FaClock,
+  FaInstagram,
+} from "react-icons/fa";
 
 const Contact = () => {
   useEffect(() => {
@@ -35,6 +41,23 @@ const Contact = () => {
             <div>
               <p className="text-gray-700 font-semibold">Location</p>
               <p className="text-gray-600">India</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="text-green-600 text-xl">
+              <FaLinkedin />
+            </div>
+            <div>
+              <p className="text-gray-700 font-semibold">Linkedin</p>
+              <a
+                href="https://www.linkedin.com/company/the-webstart/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-600 hover:underline"
+              >
+                The WebStart
+              </a>
             </div>
           </div>
 
