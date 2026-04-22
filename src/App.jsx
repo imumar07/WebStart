@@ -12,6 +12,9 @@ import AboutUs from './components/AboutUs/AboutUs';
 import About from './components/About';
 import Contact from './components/Contact/Contact';
 import Projects from './components/Projects/Projects';
+import Results from './components/Results/Results';
+import FAQ from './components/FAQ/FAQ';
+import FinalCTA from './components/FinalCTA/FinalCTA';
 
 const MainLayout = ({ children }) => {
   const location = useLocation();
@@ -21,7 +24,7 @@ const MainLayout = ({ children }) => {
   }, [location]);
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-hidden">
       <NavbarComp />
       {children}
       <Footer />
@@ -38,14 +41,17 @@ function App() {
           path="/"
           element={
             <MainLayout>
-              <div className="container-fluid min-h-screen [&>*]:py-4">
+              <div className="min-h-screen mx-auto max-w-[1440px] px-3 sm:px-6 lg:px-8 [&>*]:py-6 sm:[&>*]:py-8">
                 <Hero />
                 <Services />
+                <Results />
                 <WhyChooseUs />
                 <HowItWorks />
                 <Projects/>
                 <AboutUs />
                 <Testimonials />
+                <FAQ />
+                <FinalCTA />
               </div>
             </MainLayout>
           }

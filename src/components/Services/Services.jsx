@@ -42,18 +42,18 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900 font-body">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-16 mt-24 mb-24">
+    <section className="py-14 sm:py-20 bg-transparent font-body">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12 sm:space-y-16 mt-8 sm:mt-16 mb-10 sm:mb-20">
 
         {/* Blurred Dark Image with Text Overlay */}
-        <div className="relative h-[300px] sm:h-[400px] rounded-3xl overflow-hidden shadow-lg" data-aos="zoom-in">
+        <div className="relative h-[230px] sm:h-[400px] rounded-3xl overflow-hidden shadow-xl border border-white/60" data-aos="zoom-in">
           <img
             src={servicesImage}
             alt="Services"
             className="w-full h-full object-cover filter  brightness-50"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="font-body bg-white/10 backdrop-blur-sm text-white px-6 py-4 rounded-xl shadow-md max-w-xl text-xl sm:text-2xl font-semibold">
+            <div className="font-body bg-white/20 backdrop-blur-md text-white px-4 sm:px-6 py-3 sm:py-4 rounded-2xl shadow-md max-w-[92%] sm:max-w-xl text-base sm:text-2xl font-semibold border border-white/40">
               Helping businesses grow with modern tech, design, and strategy.
             </div>
           </div>
@@ -61,30 +61,30 @@ export default function Services() {
 
         {/* Section Heading */}
         <div data-aos="fade-up" id="services">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 font-heading">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 font-heading">
             What We Offer
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             Empowering your business with modern technology, beautiful design, and digital marketing expertise.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-lg p-6 hover:shadow-xl transition duration-300"
+              className="bg-white/85 backdrop-blur-md border border-white rounded-2xl shadow-lg p-6 sm:p-7 hover:-translate-y-1 hover:shadow-2xl transition duration-300"
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
               <div className="text-[#4588ff] text-3xl mb-4">
                 <i className={service.icon}></i>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 font-heading">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 font-heading">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 {service.description}
               </p>
             </div>

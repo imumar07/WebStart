@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -7,7 +7,6 @@ import {
   FaLinkedin,
   FaEnvelope,
   FaClock,
-  FaInstagram,
 } from "react-icons/fa";
 
 const API = import.meta.env.VITE_FORM_ACCESS_KEY;
@@ -17,43 +16,72 @@ const Contact = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
+    setResult({ type: "", message: "" });
+
     const formData = new FormData(event.target);
     formData.append("access_key", API);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
 
-    const data = await response.json();
-    setResult(data.success ? "Form Submitted Successfully!" : "Error");
+      const data = await response.json();
+
+      if (data.success) {
+        event.target.reset();
+        setResult({
+          type: "success",
+          message: "Message sent successfully. We will get back to you soon.",
+        });
+      } else {
+        setResult({
+          type: "error",
+          message: "Something went wrong. Please try again in a moment.",
+        });
+      }
+    } catch (error) {
+      setResult({
+        type: "error",
+        message: "Unable to send your message right now. Please email us directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-[50vh] bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 font-body">
-      
-      <div className="max-w-full mx-auto">
+    <div className="min-h-[50vh] py-8 sm:py-10 px-4 sm:px-6 lg:px-8 font-body">
+      <div className="max-w-7xl mx-auto">
         <h2
-          className="text-4xl font-heading font-bold text-center text-green-700 mb-4"
+          className="text-3xl sm:text-4xl font-heading font-bold text-center text-gray-900 mb-4"
           data-aos="fade-down"
         >
-          📬 Get in Touch
+          Get in Touch
         </h2>
         <p
-          className="text-lg text-center text-gray-600 mb-12"
+          className="text-base sm:text-lg text-center text-gray-600 mb-8 sm:mb-12"
           data-aos="fade-down"
         >
           We’d love to hear from you. Here’s how you can reach us.
         </p>
 
-        <div className="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 w-full gap-8">
-          <div className="bg-white shadow-xl rounded-2xl p-8 space-y-6" data-aos="fade-up">
-          <form className="text-black" onSubmit={onSubmit}>
-            <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-8">
+          <div className="bg-white/85 backdrop-blur-md border border-white shadow-xl rounded-3xl p-5 sm:p-8 space-y-5 sm:space-y-6" data-aos="fade-up">
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 font-heading">Send us a message</h3>
+              <p className="text-sm text-gray-600 mt-1">Tell us a bit about your project and goals.</p>
+            </div>
+
+            <form className="text-black space-y-5" onSubmit={onSubmit}>
+              <div className="grid grid-cols-1 gap-5">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                   Name
@@ -62,7 +90,8 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="bg-white mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-green-500 focus:border-green-500"
+                  required
+                  className="bg-white mt-1 block w-full border border-gray-200 rounded-xl shadow-sm px-4 py-3 focus:ring-2 focus:ring-[#4588ff]/25 focus:border-[#4588ff] outline-none transition"
                   placeholder="Your Name"
                 />
               </div>
@@ -74,43 +103,57 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="bg-white mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-green-500 focus:border-green-500"
+                  required
+                  className="bg-white mt-1 block w-full border border-gray-200 rounded-xl shadow-sm px-4 py-3 focus:ring-2 focus:ring-[#4588ff]/25 focus:border-[#4588ff] outline-none transition"
                   placeholder="Your Email"
                 />
               </div>
             </div>
-            <div className="mt-6">
+
+            <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                 Message
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows="4"
-                className="bg-white mt-1 block w-full border border-gray-300 rounded-lg shadow-sm p-2 focus:ring-green-500 focus:border-green-500"
-                placeholder="Your Message"
+                rows="5"
+                required
+                className="bg-white mt-1 block w-full border border-gray-200 rounded-xl shadow-sm px-4 py-3 focus:ring-2 focus:ring-[#4588ff]/25 focus:border-[#4588ff] outline-none transition resize-none"
+                placeholder="Tell us about your project, timeline, and goals."
               ></textarea>
             </div>
-            <div className="mt-6 text-center rounded-lg">
+
+            <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                disabled={isSubmitting}
+                className="w-full inline-flex items-center justify-center py-3 px-4 border border-transparent shadow-sm text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-[#4588ff] to-[#35b2ff] hover:opacity-95 disabled:opacity-70 disabled:cursor-not-allowed transition"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </div>
-          </form>
-          {result && (
-            <p className="mt-4 text-center text-green-600 font-semibold">{result}</p>
-          )}
-        </div>
+            </form>
 
-        <div
-          className="bg-white shadow-xl rounded-2xl p-8 space-y-6"
-          data-aos="fade-up"
-        >
-          <div className="flex items-center space-x-4">
-            <div className="text-green-600 text-xl">
+            {result.message && (
+              <div
+                className={`rounded-xl px-4 py-3 text-sm font-medium ${
+                  result.type === "success"
+                    ? "bg-emerald-50 text-emerald-700 border border-emerald-200"
+                    : "bg-rose-50 text-rose-700 border border-rose-200"
+                }`}
+              >
+                {result.message}
+              </div>
+            )}
+          </div>
+
+          <div
+            className="bg-white/85 backdrop-blur-md border border-white shadow-xl rounded-3xl p-5 sm:p-8 space-y-6"
+            data-aos="fade-up"
+          >
+          <div className="flex items-start space-x-4">
+            <div className="text-[#4588ff] text-xl">
               <FaMapMarkerAlt />
             </div>
             <div>
@@ -119,8 +162,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="text-green-600 text-xl">
+          <div className="flex items-start space-x-4">
+            <div className="text-[#4588ff] text-xl">
               <FaLinkedin />
             </div>
             <div>
@@ -129,7 +172,7 @@ const Contact = () => {
                 href="https://www.linkedin.com/company/the-webstart/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-600 hover:underline"
+                className="text-[#2563eb] hover:underline"
               >
                 The WebStart
               </a>
@@ -146,40 +189,23 @@ const Contact = () => {
             </div>
           </div> */}
 
-          <div className="flex items-center space-x-4">
-            <div className="text-green-600 text-xl">
+          <div className="flex items-start space-x-4">
+            <div className="text-[#4588ff] text-xl">
               <FaEnvelope />
             </div>
             <div>
               <p className="text-gray-700 font-semibold">Email</p>
               <a
                 href="mailto:info@thewebstart.in"
-                className="text-green-600 hover:underline"
+                className="text-[#2563eb] hover:underline"
               >
                 info@thewebstart.in
               </a>
             </div>
           </div>
 
-          <div className="flex items-center space-x-4">
-            <div className="text-green-600 text-xl">
-              <FaInstagram />
-            </div>
-            <div>
-              <p className="text-gray-700 font-semibold">Instagram</p>
-              <a
-                href="https://instagram.com/thewebstart"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-600 hover:underline"
-              >
-                @thewebstart
-              </a>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <div className="text-green-600 text-xl">
+          <div className="flex items-start space-x-4">
+            <div className="text-[#4588ff] text-xl">
               <FaClock />
             </div>
             <div>
