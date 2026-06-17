@@ -9,12 +9,11 @@ export async function POST(req: NextRequest) {
       razorpay_order_id,
       razorpay_payment_id,
       razorpay_signature,
-      invoiceId,
     } = await req.json() as {
       razorpay_order_id: string;
       razorpay_payment_id: string;
       razorpay_signature: string;
-      invoiceId: number;
+      invoiceId?: number;
     };
 
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {

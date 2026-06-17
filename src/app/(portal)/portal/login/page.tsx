@@ -43,6 +43,9 @@ function PortalLoginForm() {
           </button>
         </div>
         {error && <div className="text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2">{error}</div>}
+        <div className="flex justify-end">
+          <Link href="/portal/forgot-password" className="text-xs text-gray-500 hover:text-purple-400 transition-colors">Forgot password?</Link>
+        </div>
         <Button type="submit" loading={loading} className="w-full justify-center mt-2" icon={<LogIn className="w-4 h-4" />}>Sign In</Button>
       </form>
     </div>

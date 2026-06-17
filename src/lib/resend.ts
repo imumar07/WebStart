@@ -119,3 +119,38 @@ export async function sendInquiryNotification(data: InquiryFormData) {
     `,
   });
 }
+
+export async function sendPasswordResetEmail({ email, name, resetUrl }: { email: string; name: string; resetUrl: string }) {
+  const resend = getResend();
+  await resend.emails.send({
+    from,
+    to: email,
+    subject: "Reset your password — The Web Start",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:0 auto;background:#04040a;color:#e2e8f0;padding:32px;border-radius:16px;border:1px solid #1e1b4b">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#7c3aed,#06b6d4);padding:10px 20px;border-radius:12px">
+            <span style="font-size:18px;font-weight:700;color:#fff">⚡ The Web Start</span>
+          </div>
+        </div>
+        <h2 style="color:#fff;font-size:20px;margin:0 0 8px">Hi ${name},</h2>
+        <p style="color:#94a3b8;font-size:14px;margin:0 0 24px">
+          We received a request to reset the password for your client portal account.
+          Click the button below to choose a new password. This link expires in <strong style="color:#c4b5fd">1 hour</strong>.
+        </p>
+        <div style="text-align:center;margin:32px 0">
+          <a href="${resetUrl}" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:14px 32px;border-radius:12px;display:inline-block">
+            Reset Password
+          </a>
+        </div>
+        <p style="color:#475569;font-size:12px;margin:24px 0 0">
+          If you didn't request this, you can safely ignore this email — your password won't change.
+        </p>
+        <hr style="border:none;border-top:1px solid #1e293b;margin:20px 0" />
+        <p style="color:#334155;font-size:11px;text-align:center;margin:0">
+          The Web Start · thewebstart.in
+        </p>
+      </div>
+    `,
+  });
+}
