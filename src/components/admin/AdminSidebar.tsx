@@ -58,7 +58,7 @@ export function AdminSidebar({ unreadCount = 0 }: Props) {
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 overflow-y-auto py-4 px-2 space-y-0.5">
+      <nav className="flex-1 overflow-y-auto overscroll-contain py-4 px-2 space-y-0.5">
         {navItems.map((item, i) => {
           if ("divider" in item) return (
             <div key={i} className="h-px bg-white/[0.06] my-3 mx-2" />
@@ -114,7 +114,7 @@ export function AdminSidebar({ unreadCount = 0 }: Props) {
     <>
       {/* Desktop Sidebar */}
       <aside className={cn(
-        "hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 bg-[#08081a] border-r border-white/[0.06] transition-all duration-300",
+        "hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 bg-[#08081a] border-r border-white/[0.06] transition-all duration-300 overflow-hidden",
         collapsed ? "w-16" : "w-60"
       )}>
         <button

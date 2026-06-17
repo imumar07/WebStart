@@ -22,7 +22,7 @@ export function ClientsManager() {
   const [editing, setEditing] = useState<ClientPublic | null>(null);
   const [deleting, setDeleting] = useState<ClientPublic | null>(null);
   const [saving, setSaving] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", password: "", company: "", phone: "", status: "active" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", company: "", phoneCode: "+91", phone: "", status: "active" });
 
   const load = () => {
     setLoading(true);
@@ -35,13 +35,18 @@ export function ClientsManager() {
 
   const openNew = () => {
     setEditing(null);
-    setForm({ name: "", email: "", password: "", company: "", phone: "", status: "active" });
+    setForm({ name: "", email: "", password: "", company: "", phoneCode: "+91", phone: "", status: "active" });
     setShowForm(true);
   };
 
   const openEdit = (c: ClientPublic) => {
     setEditing(c);
-    setForm({ name: c.name, email: c.email, password: "", company: c.company ?? "", phone: c.phone ?? "", status: c.status });
+    // Split stored phone into code + number (e.g. "+91 9876543210" → "+91", "9876543210")
+    const raw = c.phone ?? "";
+    const codeMatch = raw.match(/^(\+\d{1,4})\s*(.*)/);
+    const phoneCode = codeMatch ? codeMatch[1] : "+91";
+    const phone     = codeMatch ? codeMatch[2] : raw;
+    setForm({ name: c.name, email: c.email, password: "", company: c.company ?? "", phoneCode, phone, status: c.status });
     setShowForm(true);
   };
 
@@ -49,9 +54,10 @@ export function ClientsManager() {
     e.preventDefault();
     setSaving(true);
     try {
+      const fullPhone = form.phone ? `${form.phoneCode} ${form.phone}` : "";
       const body = editing
-        ? { name: form.name, company: form.company, phone: form.phone, status: form.status }
-        : form;
+        ? { name: form.name, company: form.company, phone: fullPhone, status: form.status }
+        : { ...form, phone: fullPhone };
       const url = editing ? `/api/admin/clients/${editing.id}` : "/api/admin/clients";
       const method = editing ? "PUT" : "POST";
       const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
@@ -155,9 +161,27 @@ export function ClientsManager() {
                   {!editing && (
                     <Input label="Password" type="password" value={form.password} onChange={e => setForm(f => ({ ...f, password: e.target.value }))} required minLength={8} placeholder="Min 8 characters" />
                   )}
-                  <div className="grid grid-cols-2 gap-4">
-                    <Input label="Company" value={form.company} onChange={e => setForm(f => ({ ...f, company: e.target.value }))} />
-                    <Input label="Phone" value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))} />
+                  <Input label="Company Name" value={form.company} onChange={e => setForm(f => ({ ...f, company: e.target.value }))} placeholder="Acme Pvt. Ltd." />
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-medium text-gray-400">Phone Number</label>
+                    <div className="flex gap-2">
+                      <select
+                        value={form.phoneCode}
+                        onChange={e => setForm(f => ({ ...f, phoneCode: e.target.value }))}
+                        className="w-24 rounded-xl border border-white/10 bg-white/5 px-2 py-2.5 text-sm text-white focus:border-purple-500/50 focus:outline-none focus:ring-1 focus:ring-purple-500/30"
+                      >
+                        {["+91","+1","+44","+971","+65","+61","+49","+33","+81","+86"].map(c => (
+                          <option key={c} value={c} className="bg-[#08081a]">{c}</option>
+                        ))}
+                      </select>
+                      <input
+                        type="tel"
+                        value={form.phone}
+                        onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+                        placeholder="98765 43210"
+                        className="flex-1 rounded-xl border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:border-purple-500/50 focus:outline-none focus:ring-1 focus:ring-purple-500/30"
+                      />
+                    </div>
                   </div>
                   {editing && (
                     <Select label="Status" options={statusOptions} value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))} />
